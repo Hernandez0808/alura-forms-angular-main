@@ -8,6 +8,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { MensagemComponent } from './components/mensagem/mensagem.component';
+import { VerificaMaiorIdadeValidator } from './directive/maior-de-idade.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { FormsModule } from '@angular/forms';
     CadastroComponent,
     SucessoCadastroComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    MensagemComponent,
+    VerificaMaiorIdadeValidator
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
