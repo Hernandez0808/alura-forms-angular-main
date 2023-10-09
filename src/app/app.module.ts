@@ -9,8 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MensagemComponent } from './components/mensagem/mensagem.component';
-import { VerificaMaiorIdadeValidator } from './directive/maior-de-idade.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { MaiorDeIdadeDirective } from './shared/maior-de-idade.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HeaderComponent,
     MensagemComponent,
-    VerificaMaiorIdadeValidator
+    MaiorDeIdadeDirective
   ],
   imports: [
     BrowserModule,
