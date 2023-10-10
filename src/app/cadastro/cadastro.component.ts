@@ -2,6 +2,7 @@ import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { NgForm } from "@angular/forms";
+import { ConsultaCepService } from "../service/consulta-cep.service";
 // import { ConsultaCepService } from "../services/consulta-cep.service";
 
 @Component({
@@ -10,9 +11,9 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./cadastro.component.css"],
 })
 export class CadastroComponent implements OnInit {
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient, private consultaCepService: ConsultaCepService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   cadastrar(form: any) {
     return form.valid
@@ -21,17 +22,14 @@ export class CadastroComponent implements OnInit {
   }
 
   consultaCEP(cep: any, form: any) {
-    // this.consultaCepService.consultaCep(cep);
-    // cep = cep.value.replace(/\D/g, "");
-    // if (cep != "") {
-    //   var validaCEP = /^[0-9]{8}$/;
-    //   // this.consultaCepService.getDados()
-    //   if (validaCEP.test(cep)) {
-    //     this.http.get(`https://viacep.com.br/ws/${cep}/json/`)
-    //     .subscribe(
-    //       (dados) => this.populaDadosForms(dados, form));
-    //   }
-    // }
+    // 
+    cep = cep.value.replace(/\D/g, "");
+    if (cep != "") {
+      this.consultaCepService.getConsultaCep(cep).subscribe(
+        (dados) => {
+          this.populaDadosForms(dados, form)
+        });
+    }
   }
   populaDadosForms(dados: any, form: NgForm) {
     form.form.patchValue({

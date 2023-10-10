@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { MensagemComponent } from './components/mensagem/mensagem.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaiorDeIdadeDirective } from './shared/maior-de-idade.directive';
+import { ValidandoCepDirective } from './shared/validando-cep.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaiorDeIdadeDirective } from './shared/maior-de-idade.directive';
     FooterComponent,
     HeaderComponent,
     MensagemComponent,
-    MaiorDeIdadeDirective
+    MaiorDeIdadeDirective,
+    ValidandoCepDirective
   ],
   imports: [
     BrowserModule,
